@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Database, FileText, Inbox, KeyRound, LayoutGrid, LogOut, MessageSquareQuote } from "lucide-react";
+import { BarChart3, Database, FileText, Inbox, KeyRound, LayoutGrid, LogOut, MessageSquareQuote } from "lucide-react";
 import Logo from "../components/Logo";
 import { adminApi, btnCls, fmtErr, inputCls } from "../admin/api";
 import ProjectsTab from "../admin/ProjectsTab";
@@ -8,8 +8,10 @@ import TestimonialsTab from "../admin/TestimonialsTab";
 import ResumeTab from "../admin/ResumeTab";
 import EnquiriesTab from "../admin/EnquiriesTab";
 import PasswordTab from "../admin/PasswordTab";
+import AnalyticsTab from "../admin/AnalyticsTab";
 
 const TABS = [
+  ["analytics", "Analytics", BarChart3],
   ["projects", "Projects", LayoutGrid],
   ["skills", "Tech Stack", Database],
   ["testimonials", "Testimonials", MessageSquareQuote],
@@ -20,7 +22,7 @@ const TABS = [
 
 export default function Admin() {
   const [user, setUser] = useState(null);
-  const [tab, setTab] = useState("projects");
+  const [tab, setTab] = useState("analytics");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [err, setErr] = useState("");
@@ -102,6 +104,7 @@ export default function Admin() {
             </button>
           ))}
         </nav>
+        {tab === "analytics" && <AnalyticsTab />}
         {tab === "projects" && <ProjectsTab />}
         {tab === "skills" && <SkillsTab />}
         {tab === "testimonials" && <TestimonialsTab />}

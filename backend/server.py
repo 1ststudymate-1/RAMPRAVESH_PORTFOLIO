@@ -331,6 +331,80 @@ async def admin_delete_testimonial(tid: str, admin=Depends(get_current_admin)):
 async def admin_enquiries(admin=Depends(get_current_admin)):
     return await db.enquiries.find({}, {"_id": 0}).sort("created_at", -1).to_list(200)
 
+
+class ReplyIn(BaseModel):
+    message: str = Field(min_length=2, max_length=4000)
+
+
+@api_router.post("/admin/enquiries/{eid}/reply")
+async def admin_reply_enquiry(eid: str, payload: ReplyIn, admin=Depends(get_current_admin)):
+    enq = await db.enquiries.find_one({"id": eid}, {"_id": 0})
+    if not enq:
+        raise HTTPException(status_code=404, detail="Enquiry not found")
+    name_e = escape(enq["name"])
+    msg_e = escape(payload.message).replace("\n", "<br/>")
+    subject = "Re: your enquiry to rpsahnni.dev"
+    html = (
+        '<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td style="padding:24px;'
+        'font-family:Arial,sans-serif;color:#111827">'
+        f'<p style="margin:0 0 12px">Hi {name_e},</p>'
+        f'<p style="margin:0 0 12px">{msg_e}</p>'
+        '<p style="margin:0 0 12px">— Ram Pravesh Sahni, Full-Stack, Mobile &amp; AI Automation Developer</p>'
+        f'<p style="margin:24px 0 0;font-size:12px;color:#6b7280">Sent by {escape(EMAIL_FROM_NAME)} in reply to your enquiry. '
+        'We never ask for your password or card details by email.</p>'
+        '</td></tr></table>'
+    )
+    await send_email(to=enq["email"], subject=subject, html=html)
+    await db.enquiries.update_one({"id": eid}, {"$set": {"replied_at": datetime.now(timezone.utc).isoformat()}})
+    return {"status": "ok"}
+
+
+class TrackIn(BaseModel):
+    path: str = Field(max_length=200)
+    sid: str = Field(max_length=64)
+    ref: str = ""
+
+
+@api_router.post("/track")
+async def track_view(t: TrackIn):
+    if not t.path.startswith("/"):
+        raise HTTPException(status_code=400, detail="bad path")
+    await db.pageviews.insert_one({
+        "id": str(uuid.uuid4()), "path": t.path, "sid": t.sid, "ref": t.ref[:300],
+        "at": datetime.now(timezone.utc).isoformat(),
+    })
+    return {"status": "ok"}
+
+
+@api_router.get("/admin/analytics")
+async def admin_analytics(admin=Depends(get_current_admin)):
+    views = await db.pageviews.find({}, {"_id": 0}).to_list(20000)
+    enqs = await db.enquiries.find({}, {"_id": 0, "created_at": 1}).to_list(2000)
+    now = datetime.now(timezone.utc)
+    days = []
+    for i in range(6, -1, -1):
+        day = (now - timedelta(days=i)).date().isoformat()
+        days.append({
+            "day": day,
+            "views": sum(1 for v in views if str(v.get("at", "")).startswith(day)),
+            "enquiries": sum(1 for e in enqs if str(e.get("created_at", "")).startswith(day)),
+        })
+    refs = {}
+    for v in views:
+        r = v.get("ref") or ""
+        host = "Direct"
+        if r:
+            host = urlparse(r).hostname or "Direct"
+        refs[host] = refs.get(host, 0) + 1
+    top = sorted(refs.items(), key=lambda x: -x[1])[:5]
+    return {
+        "totalViews": len(views),
+        "uniqueSessions": len({v.get("sid") for v in views if v.get("sid")}),
+        "totalEnquiries": len(enqs),
+        "days": days,
+        "topReferrers": [{"source": k, "count": c} for k, c in top],
+    }
+
 # ---------------- Files (images + resume) ----------------
 
 @api_router.post("/admin/files")

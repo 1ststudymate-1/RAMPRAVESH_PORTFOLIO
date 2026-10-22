@@ -47,6 +47,21 @@ function Portfolio() {
     localStorage.setItem("theme", dark ? "dark" : "light");
   }, [dark]);
 
+  useEffect(() => {
+    if (sessionStorage.getItem("pv")) return;
+    sessionStorage.setItem("pv", "1");
+    let sid = localStorage.getItem("pv_sid");
+    if (!sid) {
+      sid = Math.random().toString(36).slice(2);
+      localStorage.setItem("pv_sid", sid);
+    }
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/track`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ path: window.location.pathname, sid, ref: document.referrer.slice(0, 300) }),
+    }).catch(() => {});
+  }, []);
+
   return (
     <div className="relative min-h-screen bg-night font-body text-slate-300">
       <Intro />

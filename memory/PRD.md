@@ -39,6 +39,8 @@
 - Resume: one-page PDF generated via /app/scripts/make_resume.py (reportlab), served at /Ram-Pravesh-Sahni-Resume.pdf, download buttons in Hero (hero-resume-button) and About card (about-resume-button)
 - Admin panel at /admin: JWT login (bcrypt, 12h token, brute-force lockout 5 tries/15 min), tabs for Projects (add/edit/delete, image upload or URL, featured toggle), Tech Stack, Testimonials, Resume PDF upload (stored in MongoDB, served at /api/resume), Enquiries inbox (contact-form messages), Password (change-password endpoint; seed is seed-only-if-missing so in-app changes persist)
 - Code pushed to GitHub: github.com/1ststudymate-1/RAMPRAVESH_PORTFOLIO (main, latest commit ae97589, 2026-07-22)
+- Enquiry reply: POST /api/admin/enquiries/{id}/reply (recipient from DB, server template) + Reply UI in Enquiries tab with REPLIED badge
+- Analytics: POST /api/track (session-based, no personal data) + GET /api/admin/analytics (7-day views, unique visitors, enquiries, top referrers) + Analytics tab (default admin view)
 - Site content now DB-driven: GET /api/content serves projects/skills/testimonials from MongoDB (seeded from defaults on first start); frontend falls back to static data.js if API fails
 
 ## Backlog
