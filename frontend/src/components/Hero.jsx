@@ -48,14 +48,14 @@ function CodeCard() {
   return (
     <div className="relative">
       <div className="absolute inset-0 translate-x-3 translate-y-3 rounded-2xl bg-amber-400/90" aria-hidden="true" />
-      <div className="glow-emerald relative overflow-hidden rounded-2xl border border-white/10 bg-panel">
-        <div className="flex items-center gap-2 border-b border-white/5 px-5 py-3">
+      <div className="glow-emerald relative overflow-hidden rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[#0D131F]">
+        <div className="flex items-center gap-2 border-b border-[rgba(255,255,255,0.06)] px-5 py-3">
           <span className="h-3 w-3 rounded-full bg-red-400/80" />
           <span className="h-3 w-3 rounded-full bg-amber-400/80" />
           <span className="h-3 w-3 rounded-full bg-emerald-400/80" />
-          <span className="ml-3 font-mono text-xs text-slate-500">dev.config.js</span>
+          <span className="ml-3 font-mono text-xs text-[#64748b]">dev.config.js</span>
         </div>
-        <pre className="overflow-x-auto p-6 font-mono text-[13px] leading-7 text-slate-300">
+        <pre className="overflow-x-auto p-6 font-mono text-[13px] leading-7 text-[#cbd5e1]">
           {heroCode.split(/("[^"]*")/g).map((p, j) =>
             p.startsWith('"') ? (
               <span key={j} className="text-emerald-300">{p}</span>
@@ -136,7 +136,7 @@ export default function Hero() {
               href="#projects"
               data-testid="hero-cta-projects"
               whileTap={{ scale: 0.97 }}
-              className="rounded-full bg-emerald-500 px-7 py-3.5 text-sm font-bold text-night transition-all duration-200 hover:-translate-y-0.5 hover:bg-emerald-400 glow-emerald"
+              className="rounded-full bg-emerald-500 px-7 py-3.5 text-sm font-bold text-onacc transition-all duration-200 hover:-translate-y-0.5 hover:bg-emerald-400 glow-emerald"
             >
               Explore projects
             </motion.a>

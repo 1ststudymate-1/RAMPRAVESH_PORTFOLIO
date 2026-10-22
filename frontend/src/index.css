@@ -4,6 +4,21 @@
 
 @layer base {
     :root {
+        /* light theme (default when no .dark class) */
+        --c-bg: #f5f7fa;
+        --c-panel: #ffffff;
+        --c-white: 15 23 42;
+        --c-black: 255 255 255;
+        --c-dot: rgba(15, 23, 42, 0.1);
+        --sl-50: #0f172a;
+        --sl-100: #1e293b;
+        --sl-200: #334155;
+        --sl-300: #475569;
+        --sl-400: #64748b;
+        --sl-500: #94a3b8;
+        --sl-600: #cbd5e1;
+        --sl-700: #e2e8f0;
+
         --background: 222 47% 4%;
         --foreground: 210 40% 96%;
         --card: 220 39% 8%;
@@ -26,17 +41,33 @@
         --radius: 0.75rem;
     }
 
+    .dark {
+        --c-bg: #070a0f;
+        --c-panel: #0d131f;
+        --c-white: 255 255 255;
+        --c-black: 0 0 0;
+        --c-dot: rgba(148, 163, 184, 0.13);
+        --sl-50: #f8fafc;
+        --sl-100: #f1f5f9;
+        --sl-200: #e2e8f0;
+        --sl-300: #cbd5e1;
+        --sl-400: #94a3b8;
+        --sl-500: #64748b;
+        --sl-600: #475569;
+        --sl-700: #334155;
+    }
+
     * {
         @apply border-border;
     }
 
     html {
-        color-scheme: dark;
         scroll-padding-top: 88px;
     }
 
     body {
         @apply bg-night font-body text-slate-300 antialiased;
+        transition: background-color 0.35s ease, color 0.35s ease;
     }
 
     ::selection {
@@ -53,7 +84,7 @@
         width: 10px;
     }
     ::-webkit-scrollbar-track {
-        background: #070a0f;
+        background: var(--c-bg);
     }
     ::-webkit-scrollbar-thumb {
         background: #1f2937;
@@ -69,7 +100,7 @@
 }
 
 .dotgrid {
-    background-image: radial-gradient(rgba(148, 163, 184, 0.13) 1px, transparent 1px);
+    background-image: radial-gradient(var(--c-dot) 1px, transparent 1px);
     background-size: 26px 26px;
 }
 

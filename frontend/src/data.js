@@ -1,5 +1,11 @@
 import { Bot, Cloud, Database, Globe, Server, Smartphone } from "lucide-react";
 
+const IMG = {
+  code: "https://images.unsplash.com/photo-1759661881353-5b9cc55e1cf4?crop=entropy&cs=srgb&fm=jpg&q=85",
+  matrix: "https://images.pexels.com/photos/26765065/pexels-photo-26765065.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  binary: "https://images.pexels.com/photos/9951077/pexels-photo-9951077.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+};
+
 export const me = {
   name: "Ram Pravesh Sahni",
   first: "RAM PRAVESH",
@@ -58,7 +64,9 @@ export const projects = [
     d: "High-concurrency microservice handling secure invoice generation, PDF exports and payment gateway webhooks for multiple tenants.",
     hi: "RBAC · PDF invoices · payment webhooks",
     k: ["Django", "PostgreSQL", "Docker", "AWS"],
-    span: "lg:col-span-3",
+    span: "lg:col-span-6",
+    featured: true,
+    img: IMG.code,
     features: [
       "Multi-tenant architecture with role-based access control",
       "PDF invoice generation with branded templates",
@@ -79,6 +87,7 @@ export const projects = [
     hi: "10k+ concurrent sockets · Redis pub/sub",
     k: ["Golang", "Redis", "PostgreSQL"],
     span: "lg:col-span-3",
+    img: IMG.matrix,
     features: [
       "WebSocket server in Go built for high throughput",
       "Redis pub/sub fan-out across multiple nodes",
@@ -98,7 +107,8 @@ export const projects = [
     d: "Analytics & financial management portal featuring real-time telemetry, charts and exportable reports behind secure login.",
     hi: "Live telemetry · exportable reports",
     k: ["React", "TypeScript", "Tailwind CSS"],
-    span: "lg:col-span-2",
+    span: "lg:col-span-3",
+    img: IMG.binary,
     features: [
       "Real-time charts and KPI telemetry",
       "Secure authentication and session handling",
@@ -118,7 +128,8 @@ export const projects = [
     d: "Cross-platform mobile application with live GPS driver movement, push alerts and full order lifecycle management.",
     hi: "Live GPS tracking · push notifications",
     k: ["Flutter", "Firebase", "FastAPI"],
-    span: "lg:col-span-4",
+    span: "lg:col-span-2",
+    img: IMG.code,
     features: [
       "Single Flutter codebase for Android and iOS",
       "Live driver GPS movement on maps",
@@ -138,7 +149,8 @@ export const projects = [
     d: "Zero-human workflow routing incoming lead forms through AI qualification directly into WhatsApp conversations within seconds.",
     hi: "AI lead scoring · instant WhatsApp reply",
     k: ["n8n", "OpenAI", "Webhooks"],
-    span: "lg:col-span-4",
+    span: "lg:col-span-2",
+    img: IMG.matrix,
     features: [
       "n8n workflow triggered by any form or webhook",
       "AI scores and qualifies every new lead",
@@ -159,6 +171,7 @@ export const projects = [
     hi: "Vector search · human handover",
     k: ["FastAPI", "LangChain", "PostgreSQL Vector"],
     span: "lg:col-span-2",
+    img: IMG.binary,
     features: [
       "RAG over company documents and FAQs",
       "Vector search stored in PostgreSQL",

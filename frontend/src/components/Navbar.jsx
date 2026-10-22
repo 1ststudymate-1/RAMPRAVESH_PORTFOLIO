@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, Moon, Sun, X } from "lucide-react";
 import Logo from "./Logo";
 
 const links = [
@@ -12,10 +12,21 @@ const links = [
   ["Contact", "#contact", "nav-contact-link"],
 ];
 
-export default function Navbar() {
+export default function Navbar({ dark, onToggleTheme }) {
   const [open, setOpen] = useState(false);
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, { stiffness: 120, damping: 24 });
+
+  const themeBtn = (
+    <button
+      onClick={onToggleTheme}
+      aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
+      data-testid="theme-toggle"
+      className="grid h-9 w-9 place-items-center rounded-full border border-white/10 text-slate-300 transition-colors duration-200 hover:border-emerald-400/50 hover:text-emerald-300"
+    >
+      {dark ? <Sun size={16} /> : <Moon size={16} />}
+    </button>
+  );
 
   return (
     <header className="fixed inset-x-0 top-0 z-40 border-b border-white/5 bg-black/60 backdrop-blur-xl">
@@ -29,22 +40,26 @@ export default function Navbar() {
               {label}
             </a>
           ))}
+          {themeBtn}
           <a
             href="#contact"
             data-testid="nav-cta-button"
-            className="rounded-full bg-emerald-500 px-5 py-2 font-semibold text-night transition-transform duration-200 hover:-translate-y-0.5 hover:bg-emerald-400"
+            className="rounded-full bg-emerald-500 px-5 py-2 font-semibold text-onacc transition-transform duration-200 hover:-translate-y-0.5 hover:bg-emerald-400"
           >
             Hire me
           </a>
         </nav>
-        <button
-          className="text-slate-200 md:hidden"
-          aria-label="Toggle menu"
-          data-testid="nav-menu-toggle"
-          onClick={() => setOpen(!open)}
-        >
-          {open ? <X size={22} /> : <Menu size={22} />}
-        </button>
+        <div className="flex items-center gap-3 md:hidden">
+          {themeBtn}
+          <button
+            className="text-slate-200"
+            aria-label="Toggle menu"
+            data-testid="nav-menu-toggle"
+            onClick={() => setOpen(!open)}
+          >
+            {open ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </div>
       <AnimatePresence>
         {open && (

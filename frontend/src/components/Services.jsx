@@ -25,7 +25,7 @@ export default function Services() {
                 </h3>
                 <p className="mt-1.5 max-w-2xl text-sm leading-relaxed text-slate-400">{d}</p>
               </span>
-              <span className="hidden h-11 w-11 place-items-center rounded-full border border-white/10 text-slate-400 transition-all duration-300 group-hover:border-emerald-400 group-hover:bg-emerald-400 group-hover:text-night md:grid">
+              <span className="hidden h-11 w-11 place-items-center rounded-full border border-white/10 text-slate-400 transition-all duration-300 group-hover:border-emerald-400 group-hover:bg-emerald-400 group-hover:text-onacc md:grid">
                 <ArrowRight size={18} className="transition-transform duration-300 group-hover:-rotate-45" />
               </span>
             </a>

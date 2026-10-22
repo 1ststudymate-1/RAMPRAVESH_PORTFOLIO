@@ -33,6 +33,8 @@
 - Navbar with scroll progress bar, mobile menu; footer with socials + back-to-top
 - Responsive verified at 375 / 768 / 1366; modal open/close + About nav verified
 - Git repo at /app with commits; .env excluded via .gitignore
+- Dark + light theme toggle (navbar sun/moon button, persisted in localStorage, full CSS-variable color system; terminal code card stays dark in both themes deliberately)
+- Visual project showcase: featured spotlight card (Billing & Invoice API, full-width with image) + image headers with ghost index numbers on all cards and in case-study modals (curated images from design_guidelines)
 
 ## Backlog
 - P0: none blocking

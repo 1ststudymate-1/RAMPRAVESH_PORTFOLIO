@@ -26,7 +26,7 @@ export default function Footer() {
             <Mail size={17} />
           </a>
           <button onClick={toTop} aria-label="Back to top" data-testid="footer-back-to-top"
-            className="grid h-10 w-10 place-items-center rounded-full bg-emerald-500 text-night transition-transform duration-200 hover:-translate-y-1">
+            className="grid h-10 w-10 place-items-center rounded-full bg-emerald-500 text-onacc transition-transform duration-200 hover:-translate-y-1">
             <ArrowUp size={17} />
           </button>
         </div>

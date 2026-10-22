@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Toaster } from "sonner";
 import { useLenis } from "@/hooks/useLenis";
@@ -34,13 +35,19 @@ function Intro() {
 }
 
 export default function App() {
+  const [dark, setDark] = useState(() => localStorage.getItem("theme") !== "light");
   useLenis();
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", dark);
+    localStorage.setItem("theme", dark ? "dark" : "light");
+  }, [dark]);
 
   return (
     <div className="relative min-h-screen bg-night font-body text-slate-300">
       <Intro />
       <div className="grain pointer-events-none fixed inset-0 z-[90] opacity-[0.04]" aria-hidden="true" />
-      <Navbar />
+      <Navbar dark={dark} onToggleTheme={() => setDark((d) => !d)} />
       <main>
         <Hero />
         <Marquee />
@@ -52,7 +59,7 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
-      <Toaster theme="dark" position="bottom-right" richColors />
+      <Toaster theme={dark ? "dark" : "light"} position="bottom-right" richColors />
     </div>
   );
 }
