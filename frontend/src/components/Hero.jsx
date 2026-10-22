@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
+import { Download } from "lucide-react";
 import { heroCode, me, projects, roles, skills } from "../data";
 
 const ease = [0.22, 1, 0.36, 1];
@@ -147,6 +148,15 @@ export default function Hero() {
               className="rounded-full border border-white/15 px-7 py-3.5 text-sm font-bold text-slate-100 transition-all duration-200 hover:-translate-y-0.5 hover:border-emerald-400/60 hover:text-emerald-300"
             >
               Hire me
+            </motion.a>
+            <motion.a
+              href="/Ram-Pravesh-Sahni-Resume.pdf"
+              download
+              data-testid="hero-resume-button"
+              whileTap={{ scale: 0.97 }}
+              className="inline-flex items-center gap-2 rounded-full px-4 py-3.5 font-mono text-xs uppercase tracking-[0.15em] text-slate-400 transition-colors duration-200 hover:text-emerald-300"
+            >
+              <Download size={15} /> Résumé
             </motion.a>
           </motion.div>
 

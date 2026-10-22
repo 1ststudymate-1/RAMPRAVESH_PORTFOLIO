@@ -1,4 +1,4 @@
-import { Github, Linkedin, MapPin } from "lucide-react";
+import { Download, Github, Linkedin, MapPin } from "lucide-react";
 import { me, projects, skills } from "../data";
 import { Block, Head, Reveal } from "./Section";
 import Logo from "./Logo";
@@ -60,7 +60,7 @@ export default function About() {
               <p className="mt-5 flex items-center gap-2 text-sm text-slate-400">
                 <MapPin size={15} className="text-emerald-400" /> {me.location}
               </p>
-              <div className="mt-7 flex gap-3 border-t border-white/5 pt-6">
+              <div className="mt-7 flex flex-wrap gap-3 border-t border-white/5 pt-6">
                 <a href={me.github} target="_blank" rel="noopener noreferrer" data-testid="about-github-link"
                   className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 font-mono text-[11px] text-slate-300 transition-colors hover:border-emerald-400/50 hover:text-emerald-300">
                   <Github size={14} /> GitHub
@@ -68,6 +68,10 @@ export default function About() {
                 <a href={me.linkedin} target="_blank" rel="noopener noreferrer" data-testid="about-linkedin-link"
                   className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 font-mono text-[11px] text-slate-300 transition-colors hover:border-emerald-400/50 hover:text-emerald-300">
                   <Linkedin size={14} /> LinkedIn
+                </a>
+                <a href="/Ram-Pravesh-Sahni-Resume.pdf" download data-testid="about-resume-button"
+                  className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-4 py-2 font-mono text-[11px] font-bold text-onacc transition-transform duration-200 hover:-translate-y-0.5 hover:bg-emerald-400">
+                  <Download size={14} /> Résumé
                 </a>
               </div>
             </div>
