@@ -39,7 +39,7 @@ export default function Contact() {
   return (
     <Block id="contact">
       <Reveal>
-        <p className="mb-3 font-mono text-xs uppercase tracking-[0.25em] text-emerald-400">06 · Contact</p>
+        <p className="mb-3 font-mono text-xs uppercase tracking-[0.25em] text-emerald-400">07 · Contact</p>
         <h2 className="font-display text-3xl font-extrabold tracking-tight text-slate-50 sm:text-4xl lg:text-[2.75rem]">
           Let's build something.
         </h2>

@@ -35,6 +35,7 @@
 - Git repo at /app with commits; .env excluded via .gitignore
 - Dark + light theme toggle (navbar sun/moon button, persisted in localStorage, full CSS-variable color system; terminal code card stays dark in both themes deliberately)
 - Visual project showcase: featured spotlight card (Billing & Invoice API, full-width with image) + image headers with ghost index numbers on all cards and in case-study modals (curated images from design_guidelines)
+- Testimonials: auto-rotating editorial quote carousel (4 SAMPLE quotes — user must replace with real client words), prev/next + dots, star row, works in both themes
 
 ## Backlog
 - P0: none blocking

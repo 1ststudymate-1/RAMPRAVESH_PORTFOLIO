@@ -11,6 +11,7 @@ import Projects from "@/components/Projects";
 import TechStack from "@/components/TechStack";
 import AiWorkflows from "@/components/AiWorkflows";
 import Services from "@/components/Services";
+import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -56,6 +57,7 @@ export default function App() {
         <TechStack />
         <AiWorkflows />
         <Services />
+        <Testimonials />
         <Contact />
       </main>
       <Footer />
