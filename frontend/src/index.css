@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 222 47% 4%;
+        --foreground: 210 40% 96%;
+        --card: 220 39% 8%;
+        --card-foreground: 210 40% 96%;
+        --popover: 220 39% 8%;
+        --popover-foreground: 210 40% 96%;
+        --primary: 160 84% 39%;
+        --primary-foreground: 222 47% 6%;
+        --secondary: 221 30% 14%;
+        --secondary-foreground: 210 40% 96%;
+        --muted: 221 30% 14%;
+        --muted-foreground: 215 20% 65%;
+        --accent: 221 30% 14%;
+        --accent-foreground: 210 40% 96%;
+        --destructive: 0 84% 60%;
+        --destructive-foreground: 210 40% 98%;
+        --border: 220 20% 16%;
+        --input: 220 20% 16%;
+        --ring: 160 84% 50%;
+        --radius: 0.75rem;
+    }
+
+    * {
+        @apply border-border;
+    }
+
+    html {
+        color-scheme: dark;
+        scroll-padding-top: 88px;
+    }
+
+    body {
+        @apply bg-night font-body text-slate-300 antialiased;
+    }
+
+    ::selection {
+        background: rgba(16, 185, 129, 0.35);
+        color: #f8fafc;
+    }
+
+    :focus-visible {
+        outline: 2px solid #34d399;
+        outline-offset: 3px;
+    }
+
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+        background: #070a0f;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #1f2937;
+        border-radius: 8px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #10b981;
+    }
+}
+
+.grain {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+.dotgrid {
+    background-image: radial-gradient(rgba(148, 163, 184, 0.13) 1px, transparent 1px);
+    background-size: 26px 26px;
+}
+
+.glow-emerald {
+    box-shadow: 0 0 70px -14px rgba(16, 185, 129, 0.5);
+}
+
+.text-glow {
+    text-shadow: 0 0 32px rgba(52, 211, 153, 0.45);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
