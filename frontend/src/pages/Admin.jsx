@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Database, FileText, Inbox, LayoutGrid, LogOut, MessageSquareQuote } from "lucide-react";
+import { Database, FileText, Inbox, KeyRound, LayoutGrid, LogOut, MessageSquareQuote } from "lucide-react";
 import Logo from "../components/Logo";
 import { adminApi, btnCls, fmtErr, inputCls } from "../admin/api";
 import ProjectsTab from "../admin/ProjectsTab";
@@ -7,6 +7,7 @@ import SkillsTab from "../admin/SkillsTab";
 import TestimonialsTab from "../admin/TestimonialsTab";
 import ResumeTab from "../admin/ResumeTab";
 import EnquiriesTab from "../admin/EnquiriesTab";
+import PasswordTab from "../admin/PasswordTab";
 
 const TABS = [
   ["projects", "Projects", LayoutGrid],
@@ -14,6 +15,7 @@ const TABS = [
   ["testimonials", "Testimonials", MessageSquareQuote],
   ["resume", "Resume", FileText],
   ["enquiries", "Enquiries", Inbox],
+  ["password", "Password", KeyRound],
 ];
 
 export default function Admin() {
@@ -105,6 +107,7 @@ export default function Admin() {
         {tab === "testimonials" && <TestimonialsTab />}
         {tab === "resume" && <ResumeTab />}
         {tab === "enquiries" && <EnquiriesTab />}
+        {tab === "password" && <PasswordTab />}
       </div>
     </div>
   );

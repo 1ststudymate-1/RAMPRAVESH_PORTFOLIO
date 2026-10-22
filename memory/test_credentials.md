@@ -6,7 +6,7 @@
 
 ### Admin panel (/admin)
 - Email: rpsahnni@gmail.com
-- Password: Rpsahnni#2026  (TEST credential — seeded from backend/.env ADMIN_EMAIL/ADMIN_PASSWORD; seed reconciles password with env on every backend start)
+- Password: Rpsahnni#2026  (TEST credential — seeded only when admin is missing; password can be changed in admin panel → Password tab, and the changed password persists across restarts)
 - Role: admin
 - Auth endpoints: POST /api/auth/login, GET /api/auth/me, POST /api/auth/logout
 - Admin APIs: /api/admin/projects|skills|testimonials|enquiries, POST /api/admin/files, POST /api/admin/resume

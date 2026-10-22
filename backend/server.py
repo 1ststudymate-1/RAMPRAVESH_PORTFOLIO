@@ -120,6 +120,20 @@ async def logout(response: Response):
     return {"status": "ok"}
 
 
+class ChangePasswordIn(BaseModel):
+    current_password: str
+    new_password: str = Field(min_length=8, max_length=128)
+
+
+@api_router.post("/auth/change-password")
+async def change_password(payload: ChangePasswordIn, admin=Depends(get_current_admin)):
+    user = await db.users.find_one({"email": admin["email"]})
+    if not user or not verify_password(payload.current_password, user["password_hash"]):
+        raise HTTPException(status_code=400, detail="Current password is incorrect")
+    await db.users.update_one({"email": admin["email"]}, {"$set": {"password_hash": hash_password(payload.new_password)}})
+    return {"status": "ok"}
+
+
 async def seed_admin():
     existing = await db.users.find_one({"email": ADMIN_EMAIL})
     if existing is None:
@@ -129,9 +143,6 @@ async def seed_admin():
             "created_at": datetime.now(timezone.utc).isoformat(),
         })
         logger.info("Admin user seeded")
-    elif not verify_password(ADMIN_PASSWORD, existing["password_hash"]):
-        await db.users.update_one({"email": ADMIN_EMAIL}, {"$set": {"password_hash": hash_password(ADMIN_PASSWORD)}})
-        logger.info("Admin password reconciled with env")
 
 # ---------------- Content (public) ----------------
 
