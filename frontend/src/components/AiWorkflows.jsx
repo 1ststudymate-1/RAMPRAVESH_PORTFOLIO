@@ -14,7 +14,7 @@ export default function AiWorkflows() {
     <Block id="ai" className="max-w-none bg-panel/40">
       <div className="mx-auto max-w-6xl">
         <Head
-          eyebrow="03 · AI & automation"
+          eyebrow="04 · AI & automation"
           title="Workflows that run while you sleep."
           text="I connect your apps, data and AI models into n8n pipelines that run on their own, 24 hours a day."
         />

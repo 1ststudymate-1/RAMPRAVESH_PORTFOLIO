@@ -5,6 +5,7 @@ import Logo from "@/components/Logo";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
+import About from "@/components/About";
 import Projects from "@/components/Projects";
 import TechStack from "@/components/TechStack";
 import AiWorkflows from "@/components/AiWorkflows";
@@ -43,6 +44,7 @@ export default function App() {
       <main>
         <Hero />
         <Marquee />
+        <About />
         <Projects />
         <TechStack />
         <AiWorkflows />

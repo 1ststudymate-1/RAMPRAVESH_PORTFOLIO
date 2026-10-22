@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 import Logo from "./Logo";
 
 const links = [
+  ["About", "#about", "nav-about-link"],
   ["Projects", "#projects", "nav-projects-link"],
   ["Stack", "#stack", "nav-stack-link"],
   ["AI Workflows", "#ai", "nav-ai-link"],

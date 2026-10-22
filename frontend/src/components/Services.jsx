@@ -6,7 +6,7 @@ export default function Services() {
   return (
     <Block id="services">
       <Head
-        eyebrow="04 · Services"
+        eyebrow="05 · Services"
         title="How I can help."
         text="Pick one service or hire me for the full build — idea to production."
       />

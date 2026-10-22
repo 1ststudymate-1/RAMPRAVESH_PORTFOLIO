@@ -24,18 +24,19 @@
 ## Implemented (2026-07-22)
 - Signature intro overlay + kinetic hero with masked line-by-line reveal, role rotator, parallax code card, dot-grid + glow
 - Editorial marquee ticker
-- Projects showcase: 6 projects, bento grid (3/3, 2/4, 4/2 spans), category filters with animated layout
+- About section: bio, stats strip (6 projects / 39 tech / 4 disciplines / 24-7), identity card with socials
+- Projects showcase: 6 projects, bento grid, category filters with animated layout; every card opens a case-study modal (features, outcome, tech pills, GitHub link — currently the profile URL as a placeholder, "start a similar project" CTA)
 - Tech stack: 6 groups, 39 technologies
 - AI automation: interactive n8n flow stepper (auto-cycling) + 4 use cases
 - Services: 4 editorial rows with hover arrows
 - Contact: working form → /api/contact → email alert to owner + confirmation to visitor (verified, emailed:true), quick contact rows, sonner toasts
 - Navbar with scroll progress bar, mobile menu; footer with socials + back-to-top
-- Responsive verified at 375 / 768 / 1366
-- Git repo initialised at /app with commit; .env excluded via .gitignore
+- Responsive verified at 375 / 768 / 1366; modal open/close + About nav verified
+- Git repo at /app with commits; .env excluded via .gitignore
 
 ## Backlog
 - P0: none blocking
-- P1: per-project case study pages / modal with screenshots and GitHub/live links (projects currently have no external links)
-- P1: real photo/avatar of Ram for an About section
-- P2: blog / notes section, testimonials, analytics dashboard for enquiries, downloadable resume PDF
-- Next tasks: collect project repo/demo links from user; push to user's GitHub (needs his repo access); deploy
+- P1: replace placeholder GitHub profile links with per-project repo / live demo URLs (user must share them)
+- P1: real photo of Ram in the About section (user upload needed)
+- P2: blog / notes section, testimonials, enquiries admin view, downloadable resume PDF
+- Next tasks: collect per-project repo/demo links + portrait photo; connect user's GitHub remote for push; deploy

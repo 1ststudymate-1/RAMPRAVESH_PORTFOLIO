@@ -59,6 +59,15 @@ export const projects = [
     hi: "RBAC · PDF invoices · payment webhooks",
     k: ["Django", "PostgreSQL", "Docker", "AWS"],
     span: "lg:col-span-3",
+    features: [
+      "Multi-tenant architecture with role-based access control",
+      "PDF invoice generation with branded templates",
+      "Payment gateway webhooks with retry-safe handling",
+      "Containerised with Docker and deployed on AWS",
+    ],
+    outcome: "One API serves every tenant — billing runs end to end without manual work.",
+    gh: "https://github.com/rpsahnni-creator",
+    live: "",
   },
   {
     id: "project-card-2",
@@ -70,6 +79,15 @@ export const projects = [
     hi: "10k+ concurrent sockets · Redis pub/sub",
     k: ["Golang", "Redis", "PostgreSQL"],
     span: "lg:col-span-3",
+    features: [
+      "WebSocket server in Go built for high throughput",
+      "Redis pub/sub fan-out across multiple nodes",
+      "Persistent message history in PostgreSQL",
+      "Graceful reconnects and presence tracking",
+    ],
+    outcome: "10k+ concurrent connections stay live with sub-second message delivery.",
+    gh: "https://github.com/rpsahnni-creator",
+    live: "",
   },
   {
     id: "project-card-3",
@@ -81,6 +99,15 @@ export const projects = [
     hi: "Live telemetry · exportable reports",
     k: ["React", "TypeScript", "Tailwind CSS"],
     span: "lg:col-span-2",
+    features: [
+      "Real-time charts and KPI telemetry",
+      "Secure authentication and session handling",
+      "Exportable PDF/CSV reports",
+      "Fast loads with TypeScript-safe data layer",
+    ],
+    outcome: "Owners see the whole business on one screen and export reports in a click.",
+    gh: "https://github.com/rpsahnni-creator",
+    live: "",
   },
   {
     id: "project-card-4",
@@ -92,6 +119,15 @@ export const projects = [
     hi: "Live GPS tracking · push notifications",
     k: ["Flutter", "Firebase", "FastAPI"],
     span: "lg:col-span-4",
+    features: [
+      "Single Flutter codebase for Android and iOS",
+      "Live driver GPS movement on maps",
+      "Push notifications at every order stage",
+      "FastAPI backend with Firebase sync",
+    ],
+    outcome: "Customers watch their delivery move in real time, from pickup to doorstep.",
+    gh: "https://github.com/rpsahnni-creator",
+    live: "",
   },
   {
     id: "project-card-5",
@@ -103,6 +139,15 @@ export const projects = [
     hi: "AI lead scoring · instant WhatsApp reply",
     k: ["n8n", "OpenAI", "Webhooks"],
     span: "lg:col-span-4",
+    features: [
+      "n8n workflow triggered by any form or webhook",
+      "AI scores and qualifies every new lead",
+      "Instant personalised reply on WhatsApp",
+      "Retries and logging built into the pipeline",
+    ],
+    outcome: "Every lead gets an intelligent WhatsApp reply in seconds — even at 2 AM.",
+    gh: "https://github.com/rpsahnni-creator",
+    live: "",
   },
   {
     id: "project-card-6",
@@ -114,6 +159,15 @@ export const projects = [
     hi: "Vector search · human handover",
     k: ["FastAPI", "LangChain", "PostgreSQL Vector"],
     span: "lg:col-span-2",
+    features: [
+      "RAG over company documents and FAQs",
+      "Vector search stored in PostgreSQL",
+      "FastAPI serving layer with LangChain",
+      "Hands over to a human when confidence is low",
+    ],
+    outcome: "Support answers come from your own documents — accurate, instant, always on.",
+    gh: "https://github.com/rpsahnni-creator",
+    live: "",
   },
 ];
 

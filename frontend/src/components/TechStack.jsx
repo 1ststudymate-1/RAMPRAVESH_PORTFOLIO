@@ -5,7 +5,7 @@ export default function TechStack() {
   return (
     <Block id="stack">
       <Head
-        eyebrow="02 · Arsenal"
+        eyebrow="03 · Arsenal"
         title="The stack behind the work."
         text="Tools I use to take a project from idea to production — and keep it there."
       />
