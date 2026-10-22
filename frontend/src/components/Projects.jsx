@@ -114,7 +114,7 @@ export default function Projects() {
             data-testid={`project-filter-${k}`}
             className={`rounded-full border px-5 py-2 font-mono text-xs uppercase tracking-wider transition-all duration-200 ${
               f === k
-                ? "border-emerald-400 bg-emerald-400 text-onacc"
+                ? "border-emerald-400 bg-emerald-500 text-onacc"
                 : "border-white/15 text-slate-400 hover:border-emerald-400/50 hover:text-emerald-300"
             }`}
           >

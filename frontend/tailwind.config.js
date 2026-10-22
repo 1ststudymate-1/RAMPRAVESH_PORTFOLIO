@@ -30,6 +30,14 @@ module.exports = {
           600: 'var(--sl-600)',
           700: 'var(--sl-700)',
         },
+        emerald: {
+          200: 'var(--c-emerald-200)',
+          300: 'var(--c-emerald-300)',
+          400: 'var(--c-emerald-400)',
+        },
+        amber: {
+          400: 'var(--c-amber-400)',
+        },
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {
