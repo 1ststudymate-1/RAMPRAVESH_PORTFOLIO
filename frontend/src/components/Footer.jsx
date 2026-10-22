@@ -31,7 +31,7 @@ export default function Footer() {
           </button>
         </div>
         <p className="font-mono text-xs tracking-wider text-slate-500" data-testid="footer-copyright">
-          © {new Date().getFullYear()} {me.name} · {me.location}
+          © {new Date().getFullYear()} {me.name} · {me.location} · <a href="/admin" data-testid="footer-admin-link" className="hover:text-emerald-300">Admin</a>
         </p>
       </div>
     </footer>

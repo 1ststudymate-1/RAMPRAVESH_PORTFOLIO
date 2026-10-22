@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
-import { Menu, Moon, Sun, X } from "lucide-react";
+import { Lock, Menu, Moon, Sun, X } from "lucide-react";
 import Logo from "./Logo";
 
 const links = [
@@ -28,6 +28,17 @@ export default function Navbar({ dark, onToggleTheme }) {
     </button>
   );
 
+  const loginBtn = (
+    <a
+      href="/admin"
+      aria-label="Admin login"
+      data-testid="nav-login-link"
+      className="grid h-9 w-9 place-items-center rounded-full border border-white/10 text-slate-300 transition-colors duration-200 hover:border-emerald-400/50 hover:text-emerald-300"
+    >
+      <Lock size={15} />
+    </a>
+  );
+
   return (
     <header className="fixed inset-x-0 top-0 z-40 border-b border-white/5 bg-black/60 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8">
@@ -41,6 +52,7 @@ export default function Navbar({ dark, onToggleTheme }) {
             </a>
           ))}
           {themeBtn}
+          {loginBtn}
           <a
             href="#contact"
             data-testid="nav-cta-button"
@@ -51,6 +63,7 @@ export default function Navbar({ dark, onToggleTheme }) {
         </nav>
         <div className="flex items-center gap-3 md:hidden">
           {themeBtn}
+          {loginBtn}
           <button
             className="text-slate-200"
             aria-label="Toggle menu"
@@ -76,6 +89,9 @@ export default function Navbar({ dark, onToggleTheme }) {
                   {label}
                 </a>
               ))}
+              <a href="/admin" data-testid="nav-login-link-mobile" className="inline-flex items-center gap-2 text-slate-400">
+                <Lock size={14} /> Admin login
+              </a>
             </div>
           </motion.nav>
         )}

@@ -41,6 +41,7 @@
 - Code pushed to GitHub: github.com/1ststudymate-1/RAMPRAVESH_PORTFOLIO (main, latest commit ae97589, 2026-07-22)
 - Enquiry reply: POST /api/admin/enquiries/{id}/reply (recipient from DB, server template) + Reply UI in Enquiries tab with REPLIED badge
 - Analytics: POST /api/track (session-based, no personal data) + GET /api/admin/analytics (7-day views, unique visitors, enquiries, top referrers) + Analytics tab (default admin view)
+- Admin entry points on public site: lock icon in navbar (desktop + mobile menu) and "Admin" link in footer, both → /admin
 - Site content now DB-driven: GET /api/content serves projects/skills/testimonials from MongoDB (seeded from defaults on first start); frontend falls back to static data.js if API fails
 
 ## Backlog
