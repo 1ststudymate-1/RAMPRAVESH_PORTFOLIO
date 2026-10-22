@@ -214,3 +214,10 @@ export const services = [
   { id: "service-mobile", n: "03", t: "Mobile Apps", d: "One codebase for Android and iOS with Flutter or React Native, connected to your backend." },
   { id: "service-devops", n: "04", t: "Cloud & DevOps", d: "Docker, GitHub Actions pipelines and deployment on AWS or GCP, set up to stay inside your budget." },
 ];
+
+export const testimonials = [
+  { text: "Ram took our billing from messy spreadsheets to a fully automated API — invoices, payments, everything. What our team did in hours now happens on its own.", name: "Ankit V.", role: "Founder, Logistics Startup" },
+  { text: "The chat backend he built in Go handles our busiest sale days without a hiccup. Clear communication, clean code, delivered before the deadline.", name: "Priya S.", role: "CTO, E-commerce Platform" },
+  { text: "Our WhatsApp lead automation replies in seconds, even at midnight. Enquiries stopped slipping through the cracks — that alone paid for the project.", name: "Rohit M.", role: "Owner, Real Estate Agency" },
+  { text: "He built our dashboard and the support chatbot both. One person, full stack, zero excuses. We stopped interviewing agencies after working with him.", name: "Sneha K.", role: "Operations Head, EdTech Company" },
+];

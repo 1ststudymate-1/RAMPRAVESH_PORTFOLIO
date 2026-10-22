@@ -37,6 +37,8 @@
 - Visual project showcase: featured spotlight card (Billing & Invoice API, full-width with image) + image headers with ghost index numbers on all cards and in case-study modals (curated images from design_guidelines)
 - Testimonials: auto-rotating editorial quote carousel (4 SAMPLE quotes — user must replace with real client words), prev/next + dots, star row, works in both themes
 - Resume: one-page PDF generated via /app/scripts/make_resume.py (reportlab), served at /Ram-Pravesh-Sahni-Resume.pdf, download buttons in Hero (hero-resume-button) and About card (about-resume-button)
+- Admin panel at /admin: JWT login (bcrypt, 12h token, brute-force lockout 5 tries/15 min), tabs for Projects (add/edit/delete, image upload or URL, featured toggle), Tech Stack, Testimonials, Resume PDF upload (stored in MongoDB, served at /api/resume), Enquiries inbox (contact-form messages)
+- Site content now DB-driven: GET /api/content serves projects/skills/testimonials from MongoDB (seeded from defaults on first start); frontend falls back to static data.js if API fails
 
 ## Backlog
 - P0: none blocking

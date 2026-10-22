@@ -1,18 +1,19 @@
 import { Download, Github, Linkedin, MapPin } from "lucide-react";
-import { me, projects, skills } from "../data";
+import { me } from "../data";
+import { useContent } from "../content";
 import { Block, Head, Reveal } from "./Section";
 import Logo from "./Logo";
 
-const techCount = new Set(skills.flatMap((s) => s.items)).size;
-
-const stats = [
-  [String(projects.length).padStart(2, "0"), "flagship projects"],
-  [String(techCount), "technologies"],
-  ["04", "disciplines"],
-  ["24/7", "automations running"],
-];
-
 export default function About() {
+  const { projects, skills, resumeUrl } = useContent();
+  const techCount = new Set(skills.flatMap((s) => s.items)).size;
+  const stats = [
+    [String(projects.length).padStart(2, "0"), "flagship projects"],
+    [String(techCount), "technologies"],
+    ["04", "disciplines"],
+    ["24/7", "automations running"],
+  ];
+
   return (
     <Block id="about" data-testid="about-section">
       <Head eyebrow="01 · About" title="The developer behind the work." />
@@ -69,7 +70,7 @@ export default function About() {
                   className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 font-mono text-[11px] text-slate-300 transition-colors hover:border-emerald-400/50 hover:text-emerald-300">
                   <Linkedin size={14} /> LinkedIn
                 </a>
-                <a href="/Ram-Pravesh-Sahni-Resume.pdf" download data-testid="about-resume-button"
+                <a href={resumeUrl || "/Ram-Pravesh-Sahni-Resume.pdf"} download data-testid="about-resume-button"
                   className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-4 py-2 font-mono text-[11px] font-bold text-onacc transition-transform duration-200 hover:-translate-y-0.5 hover:bg-emerald-400">
                   <Download size={14} /> Résumé
                 </a>

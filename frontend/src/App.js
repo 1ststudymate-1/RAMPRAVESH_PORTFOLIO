@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster } from "sonner";
+import { ContentProvider } from "@/content";
 import { useLenis } from "@/hooks/useLenis";
 import Logo from "@/components/Logo";
 import Navbar from "@/components/Navbar";
@@ -14,6 +16,7 @@ import Services from "@/components/Services";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import Admin from "@/pages/Admin";
 
 function Intro() {
   return (
@@ -35,7 +38,7 @@ function Intro() {
   );
 }
 
-export default function App() {
+function Portfolio() {
   const [dark, setDark] = useState(() => localStorage.getItem("theme") !== "light");
   useLenis();
 
@@ -61,7 +64,20 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
-      <Toaster theme={dark ? "dark" : "light"} position="bottom-right" richColors />
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <ContentProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Portfolio />} />
+          <Route path="/admin" element={<Admin />} />
+        </Routes>
+      </BrowserRouter>
+      <Toaster theme="dark" position="bottom-right" richColors />
+    </ContentProvider>
   );
 }

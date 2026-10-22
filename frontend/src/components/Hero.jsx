@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
 import { Download } from "lucide-react";
-import { heroCode, me, projects, roles, skills } from "../data";
+import { heroCode, me, roles } from "../data";
+import { useContent } from "../content";
 
 const ease = [0.22, 1, 0.36, 1];
-const techCount = new Set(skills.flatMap((s) => s.items)).size;
 
 function MaskedLine({ children, delay, className }) {
   return (
@@ -72,6 +72,8 @@ function CodeCard() {
 
 export default function Hero() {
   const ref = useRef(null);
+  const { projects, skills, resumeUrl } = useContent();
+  const techCount = new Set(skills.flatMap((s) => s.items)).size;
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const yCard = useTransform(scrollYProgress, [0, 1], [0, 120]);
   const yGlow = useTransform(scrollYProgress, [0, 1], [0, -80]);
@@ -150,7 +152,7 @@ export default function Hero() {
               Hire me
             </motion.a>
             <motion.a
-              href="/Ram-Pravesh-Sahni-Resume.pdf"
+              href={resumeUrl || "/Ram-Pravesh-Sahni-Resume.pdf"}
               download
               data-testid="hero-resume-button"
               whileTap={{ scale: 0.97 }}

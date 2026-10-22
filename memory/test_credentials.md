@@ -3,10 +3,16 @@
 # Testing agent reads this before auth tests. Fork/continuation agents read on startup.
 
 ## rpsahnni.dev Portfolio
-No login / auth in this app — it is a public portfolio site.
 
-- Owner email (receives contact-form alerts): rpsahnni@gmail.com
-- Contact endpoint: POST /api/contact  {name, email, message}
-  - rate limit: 5 submissions / 10 min per IP
-  - test visitor address used during verification: delivered@resend.dev
-- Enquiries are stored in MongoDB collection: enquiries
+### Admin panel (/admin)
+- Email: rpsahnni@gmail.com
+- Password: Rpsahnni#2026  (TEST credential — seeded from backend/.env ADMIN_EMAIL/ADMIN_PASSWORD; seed reconciles password with env on every backend start)
+- Role: admin
+- Auth endpoints: POST /api/auth/login, GET /api/auth/me, POST /api/auth/logout
+- Admin APIs: /api/admin/projects|skills|testimonials|enquiries, POST /api/admin/files, POST /api/admin/resume
+
+### Contact form
+- Owner email (receives alerts): rpsahnni@gmail.com
+- POST /api/contact {name, email, message} — rate limit 5 / 10 min per IP
+- Test visitor address used during verification: delivered@resend.dev
+- Enquiries stored in MongoDB collection: enquiries (also visible in admin panel)

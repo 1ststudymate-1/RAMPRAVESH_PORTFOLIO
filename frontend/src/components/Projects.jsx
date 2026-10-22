@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
-import { filters, projects } from "../data";
+import { filters } from "../data";
+import { useContent } from "../content";
 import { Block, Head } from "./Section";
 import ProjectModal from "./ProjectModal";
 
@@ -95,6 +96,7 @@ function ProjectCard({ p, onOpen }) {
 export default function Projects() {
   const [f, setF] = useState("all");
   const [selected, setSelected] = useState(null);
+  const { projects } = useContent();
   const list = projects.filter((p) => f === "all" || p.c === f);
 
   return (

@@ -1,34 +1,13 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Quote, Star } from "lucide-react";
+import { useContent } from "../content";
 import { Block, Head, Reveal } from "./Section";
 
 const ease = [0.22, 1, 0.36, 1];
 
-const testimonials = [
-  {
-    text: "Ram took our billing from messy spreadsheets to a fully automated API — invoices, payments, everything. What our team did in hours now happens on its own.",
-    name: "Ankit V.",
-    role: "Founder, Logistics Startup",
-  },
-  {
-    text: "The chat backend he built in Go handles our busiest sale days without a hiccup. Clear communication, clean code, delivered before the deadline.",
-    name: "Priya S.",
-    role: "CTO, E-commerce Platform",
-  },
-  {
-    text: "Our WhatsApp lead automation replies in seconds, even at midnight. Enquiries stopped slipping through the cracks — that alone paid for the project.",
-    name: "Rohit M.",
-    role: "Owner, Real Estate Agency",
-  },
-  {
-    text: "He built our dashboard and the support chatbot both. One person, full stack, zero excuses. We stopped interviewing agencies after working with him.",
-    name: "Sneha K.",
-    role: "Operations Head, EdTech Company",
-  },
-];
-
 export default function Testimonials() {
+  const { testimonials } = useContent();
   const [i, setI] = useState(0);
   const next = () => setI((n) => (n + 1) % testimonials.length);
   const prev = () => setI((n) => (n - 1 + testimonials.length) % testimonials.length);
@@ -38,7 +17,7 @@ export default function Testimonials() {
     return () => clearInterval(t);
   }, []);
 
-  const q = testimonials[i];
+  const q = testimonials[i % testimonials.length];
 
   return (
     <Block id="testimonials" className="max-w-none bg-panel/40">
@@ -103,7 +82,7 @@ export default function Testimonials() {
                       onClick={() => setI(d)}
                       aria-label={`Go to testimonial ${d + 1}`}
                       data-testid={`testimonial-dot-${d + 1}`}
-                      className={`h-1.5 rounded-full transition-all duration-300 ${d === i ? "w-6 bg-emerald-400" : "w-1.5 bg-white/15 hover:bg-white/30"}`}
+                      className={`h-1.5 rounded-full transition-all duration-300 ${d === i % testimonials.length ? "w-6 bg-emerald-400" : "w-1.5 bg-white/15 hover:bg-white/30"}`}
                     />
                   ))}
                 </div>
